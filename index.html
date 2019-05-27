@@ -1,55 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en"  ng-app="MyApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style>
-        main {
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-    </style>
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <script src="./angular/angular.min.js"></script>
 </head>
 <body>
-    
     <main>
         <div class="container">
-            <input type="text" id="name" class="form-control" ng-model="name">
-            <p><i id="res">{{name}}</i></p>
-
-            <div ng-init='books = [
-                {"title": "Книга о вкусной и здоровой пище",
-                 "year": 1998},
-                {"title": "Гамлет",
-                 "year": 2021},
-                {"title": "Война и мир",
-                 "year": 2005},
-                {"title": "Звездные войны",
-                 "year": 2004},
-                {"title": "Мертвые души",
-                 "year": 2007}
-            ]'>
+            <div ng-controller="MyController">
+                {{1+3}}
+                <p>{{data}}</p>
+                <p>{{obj.var2}}</p>
+                <p>{{books[2].title}}</p>
             </div>
-
-            <p><input type="text" class="form-control" ng-model="search"></p>
-
-            <table class="table">
-                <tr>
-                    <th>Book name</th>
-                    <th>Book year</th>
-                </tr>
-                <tr ng-repeat="book in books | filter : search">
-                    <td>{{book.title}}</td>
-                    <td>{{book.year}}</td>
-                </tr>
-            </table>
         </div>
     </main>
 
+    <script>
+        var data = 'Данные из модели';
+        var app = 123;
+        
+        (function() {
+            var app = angular.module('MyApp', []);
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+            app.controller('MyController', function($scope) {
+                $scope.data = data;
+                $scope.obj = {
+                    var1: 'test',
+                    var2: 123
+                };
+                $scope.books = [
+                    {title: 'book1', year: '2000'},
+                    {title: 'book2', year: '2001'},
+                    {title: 'book3', year: '2030'}
+                ];
+            });
+        })();
+
+        console.log(app);
+    </script>
 </body>
 </html>
