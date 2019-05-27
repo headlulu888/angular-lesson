@@ -11,37 +11,28 @@
 <body>
     <main>
         <div class="container">
-            <div ng-controller="MyController">
-                {{1+3}}
-                <p>{{data}}</p>
-                <p>{{obj.var2}}</p>
-                <p>{{books[2].title}}</p>
+            <div ng-controller="ParentController">
+                <div ng-controller="ChildController">
+                    {{name}}
+                </div>
             </div>
         </div>
     </main>
 
     <script>
         var data = 'Данные из модели';
-        var app = 123;
         
         (function() {
             var app = angular.module('MyApp', []);
 
-            app.controller('MyController', function($scope) {
-                $scope.data = data;
-                $scope.obj = {
-                    var1: 'test',
-                    var2: 123
-                };
-                $scope.books = [
-                    {title: 'book1', year: '2000'},
-                    {title: 'book2', year: '2001'},
-                    {title: 'book3', year: '2030'}
-                ];
+            app.controller('ParentController', function($scope, $rootScope) {
+                $scope.name = 'Vasya';
+            });
+            app.controller('ChildController', function($scope) {
+                // $scope.name = 'Vasya';
+                console.log($scope);
             });
         })();
-
-        console.log(app);
     </script>
 </body>
 </html>
