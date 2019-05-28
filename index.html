@@ -11,37 +11,37 @@
 <body>
     <main>
         <div class="container">
-            <div ng-controller="MyController1 as Ctr1">
-                <div ng-controller="MyController2 as Ctr2">
-                    <div ng-controller="MyController3 as Ctr3">
-                        {{ Ctr3.name }}
-                        <div class="input-group">
-                            <input type="text" class="form-control" ng-model="Ctr3.name">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" ng-click="Ctr3.hello()">Click me</button>
-                            </span>
-                        </div>
 
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Year</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="book in Ctr3.books">
-                                    <td>{{$index + 1}} {{$first}}</td>
-                                    <td>{{book.title}}</td>
-                                    <td>{{book.year}}</td>
-                                    <td>{{book.price}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <h1 ng-controller="MainController">Кол-во книг: {{books.length}}</h1>
+
+            <div ng-controller="BooksController">
+
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="book in books">
+                            <td>{{$index + 1}} {{$first}}</td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.year}}</td>
+                            <td>{{book.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="name">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="addBook()">Click me</button>
+                    </span>
                 </div>
+
             </div>
         </div>
     </main>
