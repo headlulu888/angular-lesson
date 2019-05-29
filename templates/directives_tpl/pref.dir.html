@@ -11,7 +11,7 @@
         <tbody>
             <tr ng-repeat="book in books">
                 <td>{{$index + 1}} {{$first}}</td>
-                <td>{{book.title}}</td>
+                <td>{{book.title | myFilter : '!' : '?'}}</td>
                 <td>{{book.year}}</td>
                 <td>{{book.price}}</td>
                 <!-- <td>{{book.price | number : 2}} $</td> -->

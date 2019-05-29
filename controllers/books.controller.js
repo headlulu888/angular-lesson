@@ -19,4 +19,10 @@
         $scope.books = MyFactory.books;
         $scope.test = 'TEST';
     }]);
+
+    app.filter('myFilter', function() {
+        return function(str, param1, param2) {
+            return str[0].toUpperCase() + str.slice(1) + param1 + param2;
+        }
+    });
 })();
