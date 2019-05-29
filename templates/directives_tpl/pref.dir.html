@@ -9,11 +9,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="book in books" ng-click="clickTr($event)">
+            <tr ng-repeat="book in books">
                 <td>{{$index + 1}} {{$first}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.year}}</td>
                 <td>{{book.price}}</td>
+                <!-- <td>{{book.price | number : 2}} $</td> -->
+                <td>{{book.price | currency : '$' : 2}}</td>
             </tr>
         </tbody>
     </table>
