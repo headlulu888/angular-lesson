@@ -13,38 +13,14 @@
         <div class="container">
             <h1 ng-controller="MainController">Кол-во книг: {{books.length}}</h1>
             <div ng-controller="BooksController">
-
-                <!-- <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Year</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="book in books">
-                            <td>{{$index + 1}} {{$first}}</td>
-                            <td>{{book.title}}</td>
-                            <td>{{book.year}}</td>
-                            <td>{{book.price}}</td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
                 <!-- <div class="input-group">
                     <input type="text" class="form-control" ng-model="name">
                     <span class="input-group-btn">
                         <button class="btn btn-default" ng-click="addBook()">Click me</button>
                     </span>
                 </div> -->
+                <wfm-dir></wfm-dir>
             </div>
-
-            <wfm-dir></wfm-dir>
-            <div wfm-dir></div>
-            <!-- directive:wfm-dir -->
-
         </div>
     </main>
 

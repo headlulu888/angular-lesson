@@ -5,9 +5,15 @@
 
     app.directive('wfmDir', function() {
         return {
-            template: '<h4>Hello world!</h4>',
+            templateUrl: './templates/directives_tpl/pref.dir.html',
             // restrict: 'EACM', //EACM
-            replace: true
+            replace: true,
+            // controller: 'BooksController',
+            link: function(scope, element, attrs) {
+                console.log(scope);
+                console.log(element);
+                console.log(attrs);
+            },
         };
     });
 })();

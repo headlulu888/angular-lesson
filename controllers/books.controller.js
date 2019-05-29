@@ -17,5 +17,6 @@
             $scope.name = '';
         };
         $scope.books = MyFactory.books;
+        $scope.test = 'TEST';
     }]);
 })();

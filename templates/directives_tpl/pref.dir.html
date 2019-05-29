@@ -1,0 +1,22 @@
+<div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in books">
+                <td>{{$index + 1}} {{$first}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.year}}</td>
+                <td>{{book.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p>{{test}}</p>
+</div>
