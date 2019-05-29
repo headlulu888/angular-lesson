@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="book in books">
+            <tr ng-repeat="book in books" ng-click="clickTr($event)">
                 <td>{{$index + 1}} {{$first}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.year}}</td>
@@ -18,5 +18,5 @@
         </tbody>
     </table>
     
-    <p>{{test}}</p>
+    <!-- <p>{{test}}</p> -->
 </div>

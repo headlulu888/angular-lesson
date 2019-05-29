@@ -7,23 +7,24 @@
     <title>AngularJS</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <script src="./angular/angular.min.js"></script>
+    <style>
+        .gray {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 <body>
+
     <main>
         <div class="container">
-            <h1 ng-controller="MainController">Кол-во книг: {{books.length}}</h1>
+            <!-- <h1 ng-controller="MainController">Кол-во книг: {{books.length}}</h1> -->
             <div ng-controller="BooksController">
-                <!-- <div class="input-group">
-                    <input type="text" class="form-control" ng-model="name">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" ng-click="addBook()">Click me</button>
-                    </span>
-                </div> -->
                 <wfm-dir></wfm-dir>
             </div>
         </div>
     </main>
 
+    <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="./script.js"></script>
     <script src="./services/my.factory.js"></script>
     <script src="./controllers/books.controller.js"></script>
