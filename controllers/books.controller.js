@@ -3,7 +3,7 @@
 (function() {
     var app = angular.module('MyApp');
     
-    app.controller('BooksController', ['$scope', '$log', 'MyFactory', '$http', function($scope, $log, MyFactory, $http) {
+    app.controller('BooksController', ['$scope', '$http', function($scope, $http) {
         $scope.addBook = function() {
             if (angular.isDefined($scope.name)) {
                 $scope.books.push({
@@ -16,19 +16,17 @@
             }
             $scope.name = '';
         };
-        $scope.books = MyFactory.books;
-        $scope.test = 'TEST';
-
-        $scope.test2 = 'tetrr';
+        // $scope.books = MyFactory.books;
 
         var data = {
             var1: 'tesr1',
             var2: 'tesr2'
         };
 
-        $http.post('data.php', data)
+        $http.get('books.php')
             .then(function successCallback(response) {
-                $scope.data = response.data;
+                // console.log(response);
+                $scope.books = response.data;
             }, function errorCallback(response) {
                 alert('Error!');
             });

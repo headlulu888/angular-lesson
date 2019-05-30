@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AngularJS</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <script src="./angular/angular.min.js"></script>
     <style>
         .gray {
             background-color: #ccc;
@@ -20,22 +19,25 @@
 
     <main>
         <div class="container">
-            <!-- <h1 ng-controller="MainController">Кол-во книг: {{books.length}}</h1> -->
-            <div ng-controller="BooksController">
+            <!-- <div ng-controller="BooksController">
                 <wfm-dir></wfm-dir>
                 {{data.key1}}
                 <br>
                 {{data.key2}}
-            </div>
+            </div> -->
+
+            <div ng-view></div>
         </div>
     </main>
 
     <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="./angular/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.7.8/i18n/angular-locale_ru-ru.js"></script>
+    <script src="./angular/angular-route.min.js"></script>
     <script src="./script.js"></script>
     <script src="./services/my.factory.js"></script>
     <script src="./controllers/books.controller.js"></script>
-    <script src="./controllers/main.controller.js"></script>
+    <!-- <script src="./controllers/main.controller.js"></script> -->
     <script src="./directives/pref.dir.js"></script>
 </body>
 </html>
