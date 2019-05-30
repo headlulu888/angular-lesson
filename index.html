@@ -11,15 +11,21 @@
         .gray {
             background-color: #ccc;
         }
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
     </style>
 </head>
-<body>
+<body ng-cloak>
 
     <main>
         <div class="container">
             <!-- <h1 ng-controller="MainController">Кол-во книг: {{books.length}}</h1> -->
             <div ng-controller="BooksController">
                 <wfm-dir></wfm-dir>
+                {{data.key1}}
+                <br>
+                {{data.key2}}
             </div>
         </div>
     </main>

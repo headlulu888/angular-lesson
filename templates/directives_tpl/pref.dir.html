@@ -13,7 +13,7 @@
                 <td>{{$index + 1}} {{$first}}</td>
                 <td>{{book.title | myFilter : '!' : '?'}}</td>
                 <td>{{book.year}}</td>
-                <td>{{book.price}}</td>
+                <!-- <td>{{book.price}}</td> -->
                 <!-- <td>{{book.price | number : 2}} $</td> -->
                 <td>{{book.price | currency : '$' : 2}}</td>
             </tr>
