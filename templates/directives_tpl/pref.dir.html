@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="book in books">
+            <tr ng-repeat="book in books" class="repeat-animation">
                 <td>{{$index + 1}} {{$first}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.author}}</td>
@@ -19,6 +19,4 @@
             </tr>
         </tbody>
     </table>
-    
-    <!-- <p>{{test}}</p> -->
 </div>
