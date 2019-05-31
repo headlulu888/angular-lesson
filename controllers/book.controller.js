@@ -3,9 +3,9 @@
 (function() {
     var app = angular.module('MyApp');
     
-    app.controller('BookController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    app.controller('BookController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
 
-        $scope.id = $routeParams.id;
+        $scope.id = $stateParams.id;
 
         // $http.post('books.php')
         //     .then(function successCallback(response) {
