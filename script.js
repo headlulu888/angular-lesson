@@ -9,12 +9,13 @@
 				controller: 'BooksController',
 				templateUrl: 'templates/books.html'
 			})
-			.when('/test', {
-				template: 'TEST'
+			.when('/book/:id', {
+				controller: 'BookController',
+				templateUrl: 'templates/book.html'
 			})
 			.when('/404', {
 				templateUrl: 'templates/404.html'
 			})
-			.otherwise({redirectTo: '/'});
+			.otherwise({redirectTo: '/404'});
 	}]);
 })();

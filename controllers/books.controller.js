@@ -25,7 +25,6 @@
 
         $http.get('books.php')
             .then(function successCallback(response) {
-                // console.log(response);
                 $scope.books = response.data;
             }, function errorCallback(response) {
                 alert('Error!');
