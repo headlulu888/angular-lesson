@@ -1,4 +1,6 @@
 <h1>Список книг</h1>
+<input type="checkbox" name="" id="" ng-model="show">Показать цену
+<br><br>
 <p><input type="text" name="search" class="form-control" ng-model="search"></p>
 <table class="table table-bordered table-hover">
     <thead>
@@ -7,7 +9,7 @@
             <th>Name</th>
             <th>Author</th>
             <th>Year</th>
-            <th>Price</th>
+            <th ng-show="show" class="flip-in">Price</th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +18,8 @@
             <td><a href="book/{{book.id}}">{{book.title}}</a></td>
             <td>{{book.author}}</td>
             <td>{{book.year}}</td>
-            <td>{{book.price | currency : 'руб' : 2}}</td>
+            <td ng-show="show" class="flip-in">{{book.price | currency : 'руб' : 2}}</td>
         </tr>
     </tbody>
 </table>
+<div ng-include="tpl"></div>

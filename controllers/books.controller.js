@@ -23,12 +23,15 @@
             var2: 'tesr2'
         };
 
-        $http.get('books.php')
+        $http.post('books.php')
             .then(function successCallback(response) {
                 $scope.books = response.data;
             }, function errorCallback(response) {
                 alert('Error!');
             });
+
+        $scope.tpl = 'templates/test.html';
+        $scope.test = true;
     }]);
 
     app.filter('myFilter', function() {
