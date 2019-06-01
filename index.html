@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"  ng-app="MyApp">
+<html lang="en"  ng-app="World">
 <head>
     <base href="/angular/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AngularJS</title>
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./main.css">
+    <title>World</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <style>
         .gray {
             background-color: #ccc;
@@ -17,23 +16,38 @@
         }
     </style>
 </head>
-<body ng-cloak>
+<body ng-cloak ng-controller="CountriesCtrl">
 
-    <main>
-        <div class="container">
-            <div ui-view class="slide-animation slide-left"></div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Страны</h1>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>Country</th>
+                            <th>Population</th>
+                            <th>Capital</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="country in countries">
+                            <td>{{$index + 1}}</td>
+                            <td>{{country.Code}}</td>
+                            <td>{{country.Name}}</td>
+                            <td>{{country.Population}}</td>
+                            <td>{{country.Capital}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </main>
+    </div>
 
     <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="./angular/angular.min.js"></script>
-    <script src="./angular/angular-animate.js"></script>
-    <script src="https://code.angularjs.org/1.7.8/i18n/angular-locale_ru-ru.js"></script>
-    <script src="./angular/angular.ui-router.js"></script>
-    <script src="./script.js"></script>
-    <script src="./services/my.factory.js"></script>
-    <script src="./controllers/books.controller.js"></script>
-    <script src="./controllers/book.controller.js"></script>
-    <script src="./directives/pref.dir.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
