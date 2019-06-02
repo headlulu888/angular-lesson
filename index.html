@@ -22,18 +22,19 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>Страны</h1>
+                <pre>Order: {{order}}; Reverse: {{reverse}}</pre>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Code</th>
-                            <th>Country</th>
-                            <th>Population</th>
-                            <th>Capital</th>
+                            <th><a href="" ng-click="order = 'Code'; reverse = !reverse">Code</a></th>
+                            <th><a href="" ng-click="order = 'Name'; reverse = !reverse">Country</a></th>
+                            <th><a href="" ng-click="order = 'Population'; reverse = !reverse">Population</a></th>
+                            <th><a href="" ng-click="order = 'Capital'; reverse = !reverse">Capital</a></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="country in countries">
+                        <tr ng-repeat="country in countries | orderBy : order : reverse">
                             <td>{{$index + 1}}</td>
                             <td>{{country.Code}}</td>
                             <td>{{country.Name}}</td>
