@@ -34,7 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="country in countries | orderBy : order : reverse">
+                        <tr ng-repeat="country in countries | orderBy : order : reverse | limitTo : perPage">
                             <td>{{$index + 1}}</td>
                             <td>{{country.Code}}</td>
                             <td>{{country.Name}}</td>
@@ -43,6 +43,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <button class="btn btn-primary" ng-click="prevPage()">Prev</button>
+                <span>Page 1 in 10</span>
+                <button class="btn btn-primary" ng-click="nextPage()">Next</button>
             </div>
         </div>
     </div>
