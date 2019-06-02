@@ -26,7 +26,20 @@
                     return $scope.page++;
                 };
 
-                // console.log($scope.page);
+                // ограничение первой страницы
+                $scope.firtPage = function() {
+                    return $scope.page == 1;
+                };
+
+                // ограничение последней страницы
+                $scope.lastPage = function() {
+                    return $scope.page = $scope.countPages;
+                };
+
+                $scope.start = function() {
+                    return ($scope.page - 1) * $scope.perPage;
+                };
+                
                 angular.forEach($scope.countries, function(country) {
                     country.Population = parseInt(country.Population);
                 });
