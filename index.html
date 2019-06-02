@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>World</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
     <style>
         .gray {
             background-color: #ccc;
@@ -34,8 +35,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="country in countries | orderBy : order : reverse | limitTo : perPage : start()">
-                            <td>{{$index + 1}}</td>
+                            <tr class="repeat-animation" ng-repeat="country in countries | orderBy : order : reverse | limitTo : perPage : start()">
+                            <td>{{$index + 1 + start()}}</td>
                             <td>{{country.Code}}</td>
                             <td>{{country.Name}}</td>
                             <td>{{country.Population}}</td>
@@ -44,7 +45,7 @@
                     </tbody>
                 </table>
                 <button class="btn btn-primary" ng-click="prevPage()" ng-disabled="firstPage()">Prev</button>
-                <span>Page 1 in 10</span>
+                <span>Page {{page}} in {{countPages}} </span>
                 <button class="btn btn-primary" ng-click="nextPage()" ng-disabled="lastPage()">Next</button>
             </div>
         </div>
@@ -52,6 +53,7 @@
 
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-animate.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

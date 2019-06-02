@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    var app = angular.module('World', []);
+    var app = angular.module('World', ['ngAnimate']);
 
     // Controllers
     app.controller('CountriesCtrl', ['$scope', '$http', 'orderByFilter', function($scope, $http, orderBy) {
@@ -13,33 +13,34 @@
                 // $scope.countries = orderBy(response.data, '-Population');
 
                 $scope.page = 1; // текущая страница
-                $scope.perPage = 20;
+                $scope.perPage = 10;
                 $scope.countPages = Math.ceil($scope.countries.length / $scope.perPage);
                 
-                // Номер предыдущей страницы
-                $scope.prevPage = function() {
-                    return $scope.page--;
-                };
+                // номер предыдущей страницы
+				$scope.prevPage = function(){
+					return $scope.page--;
+				};
 
-                // Номер следующей страницы
-                $scope.nextPage = function() {
-                    return $scope.page++;
-                };
+				// номер следующей страницы
+				$scope.nextPage = function(){
+					return $scope.page++;
+				};
 
-                // ограничение первой страницы
-                $scope.firtPage = function() {
-                    return $scope.page == 1;
-                };
+				// ограничение первой страницы
+				$scope.firstPage = function(){
+					return $scope.page == 1;
+				};
 
-                // ограничение последней страницы
-                $scope.lastPage = function() {
-                    return $scope.page = $scope.countPages;
-                };
+				// ограничение последней страницы
+				$scope.lastPage = function(){
+					return $scope.page == $scope.countPages;
+				};
 
-                $scope.start = function() {
-                    return ($scope.page - 1) * $scope.perPage;
-                };
-                
+				// выборка записей запрошенной страницы
+				$scope.start = 	function(){
+					return ($scope.page - 1) * $scope.perPage;
+				}
+
                 angular.forEach($scope.countries, function(country) {
                     country.Population = parseInt(country.Population);
                 });
