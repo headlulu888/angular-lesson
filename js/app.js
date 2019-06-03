@@ -12,18 +12,29 @@
                 $scope.reverse = false;
                 // $scope.countries = orderBy(response.data, '-Population');
 
-                $scope.page = 1; // текущая страница
+
+				// $scope.page = 1; // текущая страница
+				if (localStorage.getItem('page')) {
+					$scope.page = +localStorage.getItem('page');
+				} else {
+					$scope.page = 1;
+					localStorage.setItem('page', 1);
+				}
                 $scope.perPage = 10;
                 $scope.countPages = Math.ceil($scope.countries.length / $scope.perPage);
                 
                 // номер предыдущей страницы
 				$scope.prevPage = function(){
-					return $scope.page--;
+					$scope.page -= 1;
+					localStorage.setItem('page', $scope.page);
+					return $scope.page;
 				};
 
 				// номер следующей страницы
 				$scope.nextPage = function(){
-					return $scope.page++;
+					$scope.page += 1;
+					localStorage.setItem('page', $scope.page);
+					return $scope.page;
 				};
 
 				// ограничение первой страницы
