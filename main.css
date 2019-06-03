@@ -1112,8 +1112,8 @@
     transform: perspective(300px) rotateX(90deg);
     -ms-transform: perspective(300px) rotateX(90deg);
     -webkit-transform: perspective(300px) rotateX(90deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     opacity: 0.7;
   }
   /* line 772, ../sass/ng-animation.scss */
@@ -1128,8 +1128,8 @@
     transform: perspective(300px) rotateX(0deg);
     -ms-transform: perspective(300px) rotateX(0deg);
     -webkit-transform: perspective(300px) rotateX(0deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     opacity: 1;
   }
   /* line 783, ../sass/ng-animation.scss */
@@ -1144,8 +1144,8 @@
     transform: perspective(300px) rotateX(0deg);
     -ms-transform: perspective(300px) rotateX(0deg);
     -webkit-transform: perspective(300px) rotateX(0deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     opacity: 1;
   }
   /* line 794, ../sass/ng-animation.scss */
@@ -1160,8 +1160,8 @@
     transform: perspective(300px) rotateX(90deg);
     -ms-transform: perspective(300px) rotateX(90deg);
     -webkit-transform: perspective(300px) rotateX(90deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     display: block !important;
     opacity: 0;
   }
@@ -1200,8 +1200,8 @@
     transform: perspective(300px) rotateY(40deg);
     -ms-transform: perspective(300px) rotateY(40deg);
     -webkit-transform: perspective(300px) rotateY(40deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     opacity: 0.7;
   }
   /* line 826, ../sass/ng-animation.scss */
@@ -1216,8 +1216,8 @@
     transform: perspective(300px) rotateY(0deg);
     -ms-transform: perspective(300px) rotateY(0deg);
     -webkit-transform: perspective(300px) rotateY(0deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     opacity: 1;
   }
   /* line 837, ../sass/ng-animation.scss */
@@ -1232,8 +1232,8 @@
     transform: perspective(300px) rotateY(0deg);
     -ms-transform: perspective(300px) rotateY(0deg);
     -webkit-transform: perspective(300px) rotateY(0deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     opacity: 1;
   }
   /* line 848, ../sass/ng-animation.scss */
@@ -1248,8 +1248,8 @@
     transform: perspective(300px) rotateY(40deg);
     -ms-transform: perspective(300px) rotateY(40deg);
     -webkit-transform: perspective(300px) rotateY(40deg);
-    transition-duration: 550ms;
-    -webkit-transition-duration: 550ms;
+    transition-duration: 200ms;
+    -webkit-transition-duration: 200ms;
     display: block !important;
     opacity: 0;
   }

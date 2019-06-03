@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <tr class="repeat-animation" ng-repeat="country in countries | orderBy : order : reverse | limitTo : perPage : start()">
+                            <tr class="repeat-animation" ng-repeat="country in countries | orderBy : order : reverse | limitTo : perPage : 0">
                             <td>{{$index + 1 + start()}}</td>
                             <td>{{country.Code}}</td>
                             <td>{{country.Name}}</td>
@@ -44,9 +44,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-primary" ng-click="prevPage()" ng-disabled="firstPage()">Prev</button>
-                <span>Page {{page}} in {{countPages}} </span>
-                <button class="btn btn-primary" ng-click="nextPage()" ng-disabled="lastPage()">Next</button>
             </div>
         </div>
     </div>
