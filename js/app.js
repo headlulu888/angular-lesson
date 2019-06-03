@@ -5,9 +5,17 @@
 	
 	// Pagination factory
 	app.factory('pagination', function() {
-		var currentPage = 1,
+		var currentPage,
 			itemsPerPage = 10,
 			items = [];
+
+		if (localStorage.getItem('page')) {
+			currentPage = +localStorage.getItem('page')
+		} else {
+			$scope.page = 1;
+			currentPage.setItem('page', 1);
+		}
+
 		return {
 			// Устанавливаем конфигурацию пагинации
 			setItems: function(data, perPage) {
@@ -17,6 +25,10 @@
 			// Кол-во страниц
 			getCountPages: function() {
 				return Math.ceil(items.length / itemsPerPage);
+			},
+			setCountPages: function(page) {
+				localStorage.setItem('page', page);
+				currentPage = page;
 			},
 			getPaginationList: function () {
 				var countPages = this.getCountPages(),
@@ -29,6 +41,13 @@
 				}
 
 				return pagination;
+			},
+			getPagination: function() {
+				return {
+					start: (currentPage -1 ) * itemsPerPage,
+					pagination: this.getPaginationList(),
+					currentPage: currentPage
+				};
 			},
 		};
 	});
@@ -43,6 +62,12 @@
 				$scope.perPage = 20;
 
 				pagination.setItems(response.data, $scope.perPage);
+				$scope.pagination = pagination.getPagination();
+				
+				$scope.showCountries = function(page) {
+					pagination.setCountPages(page);
+					$scope.pagination = pagination.getPagination();
+				};
             });
     }]);
 })();
