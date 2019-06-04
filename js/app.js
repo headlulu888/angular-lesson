@@ -19,19 +19,24 @@
 	app.factory('pagination', function() {
 		var currentPage,
 			itemsPerPage = 10,
-			items = [];
-
-		if (localStorage.getItem('page')) {
-			currentPage = +localStorage.getItem('page')
-		} else {
-			$scope.page = 1;
-			currentPage.setItem('page', 1);
-		}
+			items = [],
+			storagePage,
+			savePage;
 
 		return {
 			// Устанавливаем конфигурацию пагинации
-			setItems: function(data, perPage) {
+			setItems: function(data, perPage, prefix = '', storage = true) {
 				items = data;
+				savePage = storage;
+				storagePage = prefix + 'Page';
+
+				if (localStorage.getItem(storagePage)) {
+					currentPage = +localStorage.getItem(storagePage)
+				} else {
+					currentPage = 1;
+					if(savePage) localStorage.setItem(storagePage, 1);
+				}
+
 				itemsPerPage = angular.isUndefined(perPage) ? itemsPerPage : perPage;
 			},
 			// Кол-во страниц
@@ -39,7 +44,7 @@
 				return Math.ceil(items.length / itemsPerPage);
 			},
 			setCountPages: function(page) {
-				localStorage.setItem('page', page);
+				if(savePage) localStorage.setItem(storagePage, page);
 				currentPage = page;
 			},
 			getPaginationList: function () {
@@ -65,11 +70,20 @@
 	});
 
 	// Controllers
-	app.controller('CountryCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+	app.controller('CountryCtrl', ['$scope', '$http', '$routeParams', 'pagination', function($scope, $http, $routeParams, pagination) {
 		$http.post('cities.php', $routeParams)
 			.then(function success(res) {
-				console.log(res.data);
 				$scope.cities = res.data;
+				$scope.order = 'Code';
+				$scope.reverse = false;
+				$scope.perPage = 10;
+
+				pagination.setItems(res.data, $scope.perPage, '', false);
+				$scope.pagination = pagination.getPagination();
+				$scope.showCities = function(page) {
+					pagination.setCountPages(page);
+					$scope.pagination = pagination.getPagination();
+				};
 			});
 	}]);
 
@@ -81,7 +95,7 @@
                 $scope.reverse = false;
 				$scope.perPage = 20;
 
-				pagination.setItems(response.data, $scope.perPage);
+				pagination.setItems(response.data, $scope.perPage, 'country');
 				$scope.pagination = pagination.getPagination();
 				
 				$scope.showCountries = function(page) {

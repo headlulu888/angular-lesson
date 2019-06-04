@@ -1,6 +1,10 @@
 <h1>Города</h1>
 <pre>Order: {{order}}; Reverse: {{reverse}}</pre>
 
+<ul class="pagination">
+    <li ng-repeat="page in pagination.pagination" ng-class="{active: pagination.currentPage == page}"><a href="" ng-click="showCities(page)">{{page}}</a></li>
+</ul>
+
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -11,11 +15,11 @@
         </tr>
     </thead>
     <tbody>
-            <tr class="repeat-animation" ng-repeat="city in cities | orderBy : order : reverse">
+            <tr class="repeat-animation" ng-repeat="city in cities | orderBy : order : reverse | limitTo : perPage : pagination.start">
             <td>{{city.ID}}</td>
             <td>{{city.Name}}</td>
             <td>{{city.District}}</td>
-            <td>{{country.Population}}</td>
+            <td>{{city.Population}}</td>
         </tr>
     </tbody>
 </table>
