@@ -77,6 +77,7 @@
 				$scope.order = 'Code';
 				$scope.reverse = false;
 				$scope.perPage = 10;
+				$scope.view = 'list';
 
 				pagination.setItems(res.data, $scope.perPage, '', false);
 				$scope.pagination = pagination.getPagination();

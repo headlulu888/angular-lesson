@@ -1,27 +1,43 @@
 <h1>Города</h1>
 <pre>Order: {{order}}; Reverse: {{reverse}}</pre>
 
+<div class="btn-group">
+    <button type="button" class="btn btn-default" ng-class="{active:view=='table'}" ng-click="view='table'"><span class="glyphicon glyphicon-th"></span></button>
+    <button type="button" class="btn btn-default" ng-class="{active:view=='list'}" ng-click="view='list'"><span class="glyphicon glyphicon-th-list"></span></button>
+</div>
+
 <ul class="pagination">
     <li ng-repeat="page in pagination.pagination" ng-class="{active: pagination.currentPage == page}"><a href="" ng-click="showCities(page)">{{page}}</a></li>
 </ul>
 
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th><a href="" ng-click="order = 'Name'; reverse = !reverse">City</a></th>
-            <th><a href="" ng-click="order = 'District'; reverse = !reverse">District</a></th>
-            <th><a href="" ng-click="order = 'Population'; reverse = !reverse">Population</a></th>
-        </tr>
-    </thead>
-    <tbody>
-            <tr class="repeat-animation" ng-repeat="city in cities | orderBy : order : reverse | limitTo : perPage : pagination.start">
-            <td>{{city.ID}}</td>
-            <td>{{city.Name}}</td>
-            <td>{{city.District}}</td>
-            <td>{{city.Population}}</td>
-        </tr>
-    </tbody>
-</table>
+<div ng-switch on="view">
+    <div ng-switch-when="table" class="slide-animation">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th><a href="" ng-click="order = 'Name'; reverse = !reverse">City</a></th>
+                    <th><a href="" ng-click="order = 'District'; reverse = !reverse">District</a></th>
+                    <th><a href="" ng-click="order = 'Population'; reverse = !reverse">Population</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr class="repeat-animation" ng-repeat="city in cities | orderBy : order : reverse | limitTo : perPage : pagination.start">
+                    <td>{{city.ID}}</td>
+                    <td>{{city.Name}}</td>
+                    <td>{{city.District}}</td>
+                    <td>{{city.Population}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-switch-when="list" class="slide-animation">
+        <ul class="list-group">
+            <li class="list-group-item repeat-animation" <tr class="repeat-animation" ng-repeat="city in cities | limitTo : perPage : pagination.start">{{city.Name}}</li>
+        </ul>
+    </div>
+</div>
+
+
 
 <button class="btn btn-default" onclick="history.back()">Back</button>
