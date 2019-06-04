@@ -22,38 +22,14 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-12">
-                <h1>Страны</h1>
-                <pre>Order: {{order}}; Reverse: {{reverse}}</pre>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th><a href="" ng-click="order = 'Code'; reverse = !reverse">Code</a></th>
-                            <th><a href="" ng-click="order = 'Name'; reverse = !reverse">Country</a></th>
-                            <th><a href="" ng-click="order = 'Population'; reverse = !reverse">Population</a></th>
-                            <th><a href="" ng-click="order = 'Capital'; reverse = !reverse">Capital</a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr class="repeat-animation" ng-repeat="country in countries | orderBy : order : reverse | limitTo : perPage : pagination.start">
-                            <td>{{$index + 1 + pagination.start}}</td>
-                            <td>{{country.Code}}</td>
-                            <td>{{country.Name}}</td>
-                            <td>{{country.Population}}</td>
-                            <td>{{country.Capital}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <ul class="pagination">
-                    <li ng-repeat="page in pagination.pagination" ng-class="{active: pagination.currentPage == page}"><a href="" ng-click="showCountries(page)">{{page}}</a></li>
-                </ul>
+                <div ng-view></div>
             </div>
         </div>
     </div>
 
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-route.min.js"></script>
     <script src="angular/angular-animate.min.js"></script>
     <script src="js/app.js"></script>
 </body>

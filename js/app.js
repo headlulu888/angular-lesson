@@ -1,7 +1,19 @@
 'use strict';
 
 (function () {
-	var app = angular.module('World', ['ngAnimate']);
+	var app = angular.module('World', ['ngAnimate', 'ngRoute']);
+
+	app.config(['$routeProvider', function($routeProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl: 'views/home.html',
+				controller: 'CountriesCtrl',
+			})
+			.when('/country/:Code', {
+				templateUrl: 'views/country.html',
+				controller: 'CountryCtrl',
+			})
+	}]);
 	
 	// Pagination factory
 	app.factory('pagination', function() {
@@ -52,7 +64,15 @@
 		};
 	});
 
-    // Controllers
+	// Controllers
+	app.controller('CountryCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+		$http.post('cities.php', $routeParams)
+			.then(function success(res) {
+				console.log(res.data);
+				$scope.cities = res.data;
+			});
+	}]);
+
     app.controller('CountriesCtrl', ['$scope', '$http', 'orderByFilter', 'pagination', function($scope, $http, orderBy, pagination) {
         $http.post('countries.php')
             .then(function success(response) {

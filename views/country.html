@@ -1,0 +1,23 @@
+<h1>Города</h1>
+<pre>Order: {{order}}; Reverse: {{reverse}}</pre>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th><a href="" ng-click="order = 'Name'; reverse = !reverse">City</a></th>
+            <th><a href="" ng-click="order = 'District'; reverse = !reverse">District</a></th>
+            <th><a href="" ng-click="order = 'Population'; reverse = !reverse">Population</a></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr class="repeat-animation" ng-repeat="city in cities | orderBy : order : reverse">
+            <td>{{city.ID}}</td>
+            <td>{{city.Name}}</td>
+            <td>{{city.District}}</td>
+            <td>{{country.Population}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-default" onclick="history.back()">Back</button>
